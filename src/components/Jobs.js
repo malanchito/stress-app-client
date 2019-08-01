@@ -4,6 +4,7 @@ import { Grid, Cell } from "styled-css-grid"
 import Card from './Card'
 import { ShakeCrazy } from 'reshake'
 import Footer from './Footer'
+import VideoPlayer from './VideoPlayer'
 
 export default function Jobs(props) {
     if(!props.jobs){
@@ -44,6 +45,7 @@ export default function Jobs(props) {
   
 `
 
+
     const buttons = props.jobs.jobs.jobs.map(job=>
         <Cell height={1}>
 
@@ -57,10 +59,27 @@ export default function Jobs(props) {
         job.name===props.jobSelected
         )
 
+        const media = currentJob.video_url ?
+        <VideoPlayer 
+                    className='Job-image'
+                    video={currentJob.video_url} 
+                    autoplay={1} 
+                    start={currentJob.start_time} 
+                    loop={1} 
+                    rel="0" 
+                    modest="1"/>
+                    :
+                    <img
+                      className='Job-image'
+                      src={currentJob.image_url} 
+                      alt={currentJob.name}
+                      />
+
+
         const salaryWithCommas = currentJob.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")  
 
     return  <Grid
-              columns={"250px 400px 400px"}
+              columns={"250px 400px 450px"}
               rows= {"50px 530px 30px"}
               areas={[
               "header header  header",
@@ -87,11 +106,7 @@ export default function Jobs(props) {
                   </Cell>
                   <Cell className='Job-image-box' center middle left={2}>
                     <ShakeCrazy>
-                      <img
-                      className='Job-image'
-                      src={currentJob.image_url} 
-                      alt={currentJob.name}
-                      />
+                      {media}
                     </ShakeCrazy>
                   </Cell>
                 </Grid>

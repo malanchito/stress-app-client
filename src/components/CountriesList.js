@@ -151,7 +151,12 @@ const Wrapper = styled.section`
                   <ShakeCrazy>
                     <VideoPlayer 
                     className='Job-image'
-                    video={videoUrl[0]} autoplay={1} start={videoUrl[1]} loop={1} rel="0" modest="1"/>
+                    video={videoUrl[0]} 
+                    autoplay={1} 
+                    start={videoUrl[1]} 
+                    loop={1} 
+                    rel="0" 
+                    modest="1"/>
                                       </ShakeCrazy>
                   </Cell>
                 </Grid>
