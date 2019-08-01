@@ -108,9 +108,7 @@ export default function Jobs(props) {
                     />
                   </Cell>
                   <Cell className='Job-image-box' center middle left={2}>
-                    <ShakeCrazy>
-                      {media}
-                    </ShakeCrazy>
+                    {media}
                   </Cell>
                 </Grid>
               </Cell>
