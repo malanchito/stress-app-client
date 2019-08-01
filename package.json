@@ -3,18 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@microlink/react": "^4.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
     "react-modal": "^3.9.1",
     "react-redux": "^7.1.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-teleportation": "0.0.8",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "reshake": "^1.2.1",
     "styled-components": "^4.3.2",
     "styled-css-grid": "^1.2.1",
-    "superagent": "^5.1.0"
+    "superagent": "^5.1.0",
+    "video-react": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",
