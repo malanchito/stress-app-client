@@ -2,7 +2,7 @@ import request from 'superagent'
 
 export const JOBS_FETCHED = 'JOBS_FETCHED'
 
-const baseUrl = 'http://localhost:4000/api'
+const baseUrl = 'https://stress-server.herokuapp.com/api'
 
 const jobsFetched = jobs => ({
   type: JOBS_FETCHED,
