@@ -18,7 +18,8 @@
     "reshake": "^1.2.1",
     "styled-components": "^4.3.2",
     "styled-css-grid": "^1.2.1",
-    "superagent": "^5.1.0"
+    "superagent": "^5.1.0",
+    "video-react": "^0.14.1"
   },
   "scripts": {
     "start": "react-scripts start",

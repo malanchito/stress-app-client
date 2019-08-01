@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ShakeCrazy } from 'reshake'
 
 const StyledContainer = styled.div`
   border: 1px solid
@@ -19,18 +18,6 @@ const Title = styled.h2`
   }
 `
 
-const Salary = styled.div`
-  color: #fff;
-  font-weight: bold;
-  margin: 6px 0;
-  :hover {
-    opacity: 0.8;
-  }
-  @media (max-width: 500px) {
-    font-size: 0.8rem;
-  }
-`
-
 const Description = styled.p`
   color: #fff;
   font-weight: 300;
@@ -42,20 +29,16 @@ const Description = styled.p`
 
 
 
-const Card = ({
+
+
+ const CountryList = ({
   title,
-  description,
-  salary
+  list
 }) => (
   <StyledContainer>
     <Title>{title}</Title>
-    <Description>{description}</Description>
-    <ShakeCrazy>
-    <Salary>Salary: ${salary}</Salary>
-    </ShakeCrazy>
+    <Description>{list}</Description>
   </StyledContainer>
 )
 
- 
-
-export default Card
+export default CountryList

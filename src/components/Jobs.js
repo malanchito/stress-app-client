@@ -2,7 +2,8 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { Grid, Cell } from "styled-css-grid"
 import Card from './Card'
-import { ShakeCrazy,ShakeRotate } from 'reshake'
+import { ShakeCrazy } from 'reshake'
+import Footer from './Footer'
 
 export default function Jobs(props) {
     if(!props.jobs){
@@ -32,8 +33,9 @@ export default function Jobs(props) {
     background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 100px;
-
       `
+
+
 
   const Title = styled.h1`
   font-size: 1.5em;
@@ -57,42 +59,47 @@ export default function Jobs(props) {
 
         const salaryWithCommas = currentJob.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")  
 
-    return <Grid
-        columns={"250px 400px 400px"}
-        rows={"50px 530px 30px"}
-        areas={[
-            "menu header  header",
-            "menu job-details  job-details",
-            "footer footer  footer"
-          ]}>
-          <Cell area="header"><Wrapper>
-              <Title>The Most Stressful Jobs</Title>
-              </Wrapper></Cell>
-        
-        <Cell area="menu">
-        <Grid columns={1}>
-        {buttons}
-        </Grid>
-        </Cell>
-        <Cell area="job-details">
-        <Grid columns={2}>  
-        <Cell left={1}>
-        <Card
-          title={currentJob.name}
-          description={currentJob.description}
-          salary={salaryWithCommas}
-        />
-    </Cell>
-    <Cell center middle left={2}>
-    <ShakeCrazy>
-    <img className='Job-image' src={currentJob.image_url} alt={currentJob.name}/>
-    </ShakeCrazy>
-    </Cell>
-        </Grid>
-        </Cell>
-        <Cell area="footer">Footer</Cell>
-      </Grid>
-    
-        
-    
+    return  <Grid
+              columns={"250px 400px 400px"}
+              rows= {"50px 530px 30px"}
+              areas={[
+              "header header  header",
+              "menu job-details  job-details",
+              "footer footer  footer"
+              ]}
+            >
+              <Cell area="header">
+                <Wrapper>
+                  <Title>The Most Stressful Jobs</Title>
+                </Wrapper>
+              </Cell>
+              <Cell center area="menu">
+                <Grid columns={1}>{ buttons }</Grid>
+              </Cell>
+              <Cell area="job-details">
+                <Grid columns={2}>  
+                  <Cell left={1}>
+                    <Card
+                      title={currentJob.name}
+                      description={currentJob.description}
+                      salary={salaryWithCommas}
+                    />
+                  </Cell>
+                  <Cell className='Job-image-box' center middle left={2}>
+                    <ShakeCrazy>
+                      <img
+                      className='Job-image'
+                      src={currentJob.image_url} 
+                      alt={currentJob.name}
+                      />
+                    </ShakeCrazy>
+                  </Cell>
+                </Grid>
+              </Cell>
+              <Cell area="footer">
+                <Wrapper>
+                <Footer/>
+                </Wrapper>
+                </Cell>
+            </Grid>  
 }
