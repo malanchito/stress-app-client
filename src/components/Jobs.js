@@ -1,21 +1,25 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { Grid, Cell } from "styled-css-grid"
-import { MdAttachMoney} from 'react-icons/md'
 import Card from './Card'
-
+import { ShakeCrazy,ShakeRotate } from 'reshake'
 
 export default function Jobs(props) {
     if(!props.jobs){
         return 'Loading Details'
     }
     const ChoiceButton = styled.button`
-    background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.1em 1em;
+    --x: 50%;
+	--y: 50%;
+	position: relative;
+	appearance: none;
+	padding: 0.1em 0.5em;
+	color: white;
+	cursor: pointer;
+	outline: none;
+	border-radius: 100px;
+	border: 2px solid transparent;
+	background: linear-gradient(#000, #000) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;
       ::before {
         content: '✨ ';
       }
@@ -24,13 +28,18 @@ export default function Jobs(props) {
       }
     `
     const Wrapper = styled.section`
-    background: cornflowerblue;
-  `
+    background: #1a2a6c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 100px;
+
+      `
 
   const Title = styled.h1`
   font-size: 1.5em;
   text-align: center;
   color: white;
+  
 `
 
     const buttons = props.jobs.jobs.jobs.map(job=>
@@ -46,24 +55,14 @@ export default function Jobs(props) {
         job.name===props.jobSelected
         )
 
-        const salaryWithCommas = currentJob.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-
-        const StyledRoot = styled.div`
-        padding: 50px 12px;
-      `
-      
-      const StyledContainer = styled.div`
-        max-width: 550px;
-        width: 100%;
-        margin: auto;
-      `
+        const salaryWithCommas = currentJob.salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")  
 
     return <Grid
         columns={"250px 400px 400px"}
         rows={"50px 530px 30px"}
         areas={[
             "menu header  header",
-            "menu job-details  content",
+            "menu job-details  job-details",
             "footer footer  footer"
           ]}>
           <Cell area="header"><Wrapper>
@@ -76,18 +75,21 @@ export default function Jobs(props) {
         </Grid>
         </Cell>
         <Cell area="job-details">
-        <StyledRoot>
-      <StyledContainer>
+        <Grid columns={2}>  
+        <Cell left={1}>
         <Card
           title={currentJob.name}
           description={currentJob.description}
           salary={salaryWithCommas}
         />
-      </StyledContainer>
-    </StyledRoot>
+    </Cell>
+    <Cell center middle left={2}>
+    <ShakeCrazy>
+    <img className='Job-image' src={currentJob.image_url} alt={currentJob.name}/>
+    </ShakeCrazy>
+    </Cell>
+        </Grid>
         </Cell>
-        <Cell area="content">            <img className='Job-image' src={currentJob.image_url} alt={currentJob.name}/>
-</Cell>
         <Cell area="footer">Footer</Cell>
       </Grid>
     

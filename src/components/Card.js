@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import Microlink from '@microlink/react'
 
 const StyledContainer = styled.div`
   border: 1px solid
+  border-radius: 20px;
   padding: 25px 12px 18px;
-  background: linear-gradient(0.25turn, #e66465, #9198e5);
+  background: #333333;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 `
 
 const Title = styled.h2`
@@ -16,8 +20,8 @@ const Title = styled.h2`
 `
 
 const Salary = styled.div`
-  color: #ccc;
-  font-weight: 300;
+  color: #fff;
+  font-weight: bold;
   margin: 6px 0;
   :hover {
     opacity: 0.8;
@@ -47,6 +51,7 @@ const Card = ({
     <Title>{title}</Title>
     <Description>{description}</Description>
     <Salary>Salary: ${salary}</Salary>
+    
   </StyledContainer>
 )
 

@@ -1,14 +1,24 @@
 import * as React from 'react'
 import styled, {keyframes} from 'styled-components'
 import { Grid, Cell } from "styled-css-grid"
+import { ShakeCrazy } from 'reshake'
 
 export default function CountriesList(props) {
     if(!props.countries){
         return 'Loading list'
     }
     const ChoiceButton = styled.button`
-      color: blue;
-
+    --x: 50%;
+    --y: 50%;
+    position: relative;
+    appearance: none;
+    padding: 0.1em 0.5em;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: linear-gradient(#000, #000) padding-box, radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;  
       ::before {
         content: '🍉 ';
       }
@@ -36,7 +46,7 @@ const Rotate = styled.div`
 
     const list=props.countries.countries.countries.map(country =>
       <Grid key={country._id} flow="column" columns={3}>
-  <Cell left={1} top={2}>{country.name}</Cell>
+  <Cell left={1} top={2}><ShakeCrazy>{country.name}</ShakeCrazy></Cell>
   <Cell left={2} top={2}><Rotate><img src={country.image_url} alt="flag"></img></Rotate></Cell>
   <Cell left={3} top={2}>{country[listType]}</Cell>
   </Grid>
