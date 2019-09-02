@@ -17,7 +17,7 @@
 ## Setup
 - git clone
 - npm install
-- npm start
+- npm start (the app should open automatically on the browser through the localhost:3000 address)
 
 ## Git workflow
 
