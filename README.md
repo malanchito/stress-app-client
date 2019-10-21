@@ -1,5 +1,5 @@
 # Preface
-- This is the frontend part of an individual game project through the Codaisseur Academy course during week 10, the goal of the project was to use a new technology from the ones learned during the course. A deployed version can be seen [here](https://www.linkedin.com/in/marlon-saul-palpa-zavala-539620183/)
+- This is the frontend part of an individual game project through the Codaisseur Academy course during week 10, the goal of the project was to use a new technology from the ones learned during the course. A deployed version can be seen [here](https://stress-statistics.herokuapp.com/)
 
 ## Table of contents
 
